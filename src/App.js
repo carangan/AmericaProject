@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Bruh moment is so cool
+          Bruh moment is so cool hahahaha
         </a>
       </header>
     </div>
