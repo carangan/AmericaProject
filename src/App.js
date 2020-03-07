@@ -38,8 +38,10 @@ class App extends Component {
     return (
       <div className="App">
         <p>Hello!</p>
-        <input type="text" value={this.state.username} onChange={this.handleChangeUsername}></input>
-        <input type="password" value={this.state.password} onChange={this.handleChangePassword}></input>
+        <div className="inputCon">
+          <input className="input-field" type="text" value={this.state.username} onChange={this.handleChangeUsername}></input>
+          <input className="input-field" type="password" value={this.state.password} onChange={this.handleChangePassword}></input>
+        </div>
         <button onClick={this.click} className="helloBtn">Sign Up</button>
       </div>
     );
