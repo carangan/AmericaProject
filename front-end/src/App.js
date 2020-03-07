@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Test from './TestComponent.js';
 
 class App extends Component {
 
@@ -38,6 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         <p>Hello!</p>
+        <Test></Test>
         <div className="inputCon">
           <input className="input-field" type="text" value={this.state.username} onChange={this.handleChangeUsername}></input>
           <input className="input-field" type="password" value={this.state.password} onChange={this.handleChangePassword}></input>

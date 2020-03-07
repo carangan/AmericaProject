@@ -4,6 +4,12 @@
   "description": "this is america project",
   "main": "server.js",
   "scripts": {
+    "all-install": "npm install && npm run front-end-install",
+    "front-end-install": "cd front-end && npm install",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "cd front-end && yarn start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
