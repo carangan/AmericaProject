@@ -6,7 +6,7 @@
   "scripts": {
     "all-install": "npm install && npm run front-end-install",
     "front-end-install": "cd front-end && npm install",
-    "start": "node server.js",
+    "start": "cd front-end && echo \"You are currently only running for front-end development\" && yarn start",
     "server": "nodemon server.js",
     "client": "cd front-end && yarn start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
