@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Test from './TestComponent.js';
+import User from './User.js';
 
 class App extends Component {
 
@@ -8,8 +8,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      username: "",
+      username: "bruh moment",
       password: "",
+      users: []
     }
 
     this.click = this.click.bind(this);
@@ -18,12 +19,22 @@ class App extends Component {
   }
 
   click() {
-    console.log(this.state.username, this.state.password);
+    const { username, users } = this.state;
+
+    const newUser = {
+      id: users.length + 1,
+      name: username,
+    }
+
+    this.setState({
+      users: [
+        ...users,
+        newUser
+      ]
+    });
   }
 
   handleChangeUsername(event) {
-    // console.log(event.target.value);
-
     this.setState({
       username: event.target.value
     });
@@ -38,8 +49,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Hello!</p>
-        <Test></Test>
+        <p>Current users:</p>
+        {
+          // this iterates through all the current users and
+          // maps them to a new User component
+          this.state.users.map((element) => {
+
+            // deconstruct the element
+            const { id } = element;
+
+            // create a new User component with a proper greeting
+            return <User {...element} key={id}></User>;
+          })
+        }
         <div className="inputCon">
           <input className="input-field" type="text" value={this.state.username} onChange={this.handleChangeUsername}></input>
           <input className="input-field" type="password" value={this.state.password} onChange={this.handleChangePassword}></input>
