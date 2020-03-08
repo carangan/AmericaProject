@@ -1,29 +1,26 @@
 const express = require('express');
 const app = express();
 
-app.get('/api/customers/', (req, res) => {
-  const customers = [
+app.get('/api/users/', (req, res) => {
+  const users = [
     {
       id: 1,
-      firstName: "Janiel",
-      lastName: "Calamari"
+      name: "Janiel Calamari"
     },
     {
       id: 2,
-      firstName: "Jay",
-      lastName: "with a G"
+      name: "Jay with a G"
     },
     {
       id: 3,
-      firstName: "Ramon",
-      lastName: "Martinez"
+      name: "Ramon Martinez"
     }
   ];
 
-  res.json(customers);
+  res.json(users);
 });
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  // console.log(`Server on port ${port}`);
+  console.log(`Server on port ${port}`);
 });

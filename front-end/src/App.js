@@ -18,6 +18,19 @@ class App extends Component {
     this.handleChangePassword = this.handleChangePassword.bind(this);
   }
 
+  componentDidMount() {
+
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(users => {
+        this.setState({
+          users: users
+        });
+      })
+      .catch(err => console.error(err));
+
+  }
+
   click() {
     const { username, users } = this.state;
 
@@ -49,6 +62,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <p>Hello!</p>
+        <div className="inputCon">
+          <input className="input-field" type="text" value={this.state.username} onChange={this.handleChangeUsername}></input>
+          <input className="input-field" type="password" value={this.state.password} onChange={this.handleChangePassword}></input>
+        </div>
+        <button onClick={this.click} className="helloBtn">Sign Up</button>
         <p>Current users:</p>
         {
           // this iterates through all the current users and
@@ -62,11 +81,6 @@ class App extends Component {
             return <User {...element} key={id}></User>;
           })
         }
-        <div className="inputCon">
-          <input className="input-field" type="text" value={this.state.username} onChange={this.handleChangeUsername}></input>
-          <input className="input-field" type="password" value={this.state.password} onChange={this.handleChangePassword}></input>
-        </div>
-        <button onClick={this.click} className="helloBtn">Sign Up</button>
       </div>
     );
   }
